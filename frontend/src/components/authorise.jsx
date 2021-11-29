@@ -47,7 +47,7 @@ const LoginForm = (props) => {
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1" />
             </div>
-            <button type="submit" className="btn btn-primary mb-3">Submit</button>
+            <button type="submit" className="btn btn-primary mb-3">Log in</button>
             <div className="mb-3 d-flex align-items-center justify-content-around" onClick={props.handleclick}>
                 <span>Forgot password ?</span>
                 <span className="signup">Don't have an account ?</span>
@@ -63,6 +63,14 @@ const SignupForm = (props) => {
                 <h1>Signup</h1>
             </div>
             <div className="mb-3">
+                <label className="form-label" htmlFor="fname">First Name</label>
+                <input type="text" className="form-control" id="fname" name="fname" />
+            </div>
+            <div className="mb-3">
+                <label className="form-label" htmlFor="lname">Last Name</label>
+                <input type="text" className="form-control" id="lname" name="lname" />
+            </div>
+            <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
             </div>
@@ -70,7 +78,11 @@ const SignupForm = (props) => {
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1" />
             </div>
-            <button type="submit" className="btn btn-primary mb-3">Submit</button>
+            <div className="mb-3">
+                <label htmlFor="cpass" className="form-label">Confirm Password</label>
+                <input type="password" className="form-control" id="cpass" name="cpass"/>
+            </div>
+            <button type="submit" className="btn btn-primary mb-3">Sign up</button>
             <div className="mb-3 d-flex align-items-center justify-content-around" onClick={props.handleclick}>
                 <span className="login">Already have an account ?</span>
             </div>

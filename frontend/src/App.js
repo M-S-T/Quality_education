@@ -1,4 +1,6 @@
+import './App.css'
 import React, { Component } from "react";
+
 
 import {
   Routes,
@@ -12,15 +14,22 @@ class App extends Component {
     super(props);
 
     this.state = {
-
+      isloggedin : false,
     }
+    this.logincallback = this.logincallback.bind(this);
+  }
+
+  logincallback = () => {
+    this.setState({
+      isloggedin: true,
+    })
   }
 
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/authorise" element={<Authorise/>} />
+        <Route path="/" element={<Home isloggedin={this.state.isloggedin}/>} />
+        <Route path="/authorise" element={<Authorise callback={this.logincallback}/>} />
       </Routes>
     )
   }
