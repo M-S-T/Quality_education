@@ -1,12 +1,14 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./navbarComponent";
+import RenderPosts from "./renderposts";
 
 class Home extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            isAuthorised : true
         }
     }
 
@@ -14,7 +16,8 @@ class Home extends Component {
         return (
             <div>
                 <Header />
-                <Navbar />
+                <Navbar isAuthorised={true}/>
+                <RenderPosts/>
             </div>
         )
     }
@@ -24,9 +27,6 @@ const Header = (props) => {
     return (
         <header className="p-3 text-center bg-blue text-white">
             <h1>Quality Education</h1>
-            {/* {!props.isloggedin ?
-                <button className="btn btn-success"><Link to="/authorise" className="text-white text-decoration-none">Authorise</Link></button>
-                : <h1>Logged in</h1>} */}
         </header>
     )
 }

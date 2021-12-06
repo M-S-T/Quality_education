@@ -10,7 +10,7 @@ class Navbar extends Component {
         super(props);
 
         this.state = {
-            isAuthorized: false
+            isAuthorized: props.isAuthorized
         }
     }
 
