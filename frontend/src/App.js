@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Authorise from "./components/authorise";
 import Home from "./components/homecomponent";
+import Landing from './components/landingPage/landingpage';
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +31,8 @@ class App extends Component {
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Home isloggedin={this.state.isloggedin}/>} />
+        <Route path="/" element={<Landing/>} />
+        <Route path="/home" element={<Home isloggedin={this.state.isloggedin}/>} />
         <Route path="/authorise" element={<Authorise callback={this.logincallback}/>} />
       </Routes>
     )

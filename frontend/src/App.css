@@ -12,3 +12,11 @@ header > button {
     right : 10px;
     transform : translateY(-50%);
 }
+
+.bg-blue{
+    background : #0f2c67;
+}
+
+.bg-yellow {
+    background : #f3950d;
+}

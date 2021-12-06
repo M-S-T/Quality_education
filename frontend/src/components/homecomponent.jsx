@@ -15,8 +15,6 @@ class Home extends Component {
             <div>
                 <Header />
                 <Navbar />
-                <h1>This is home page.</h1>
-
             </div>
         )
     }
@@ -24,7 +22,7 @@ class Home extends Component {
 
 const Header = (props) => {
     return (
-        <header className="p-3 text-center bg-dark text-white">
+        <header className="p-3 text-center bg-blue text-white">
             <h1>Quality Education</h1>
             {/* {!props.isloggedin ?
                 <button className="btn btn-success"><Link to="/authorise" className="text-white text-decoration-none">Authorise</Link></button>
