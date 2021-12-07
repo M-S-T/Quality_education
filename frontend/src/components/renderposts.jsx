@@ -12,44 +12,71 @@ class RenderPosts extends Component {
     }
     render() {
         return (
-            <div className="container-fluid mt-5">
-                <div id="carouselExampleControls" class="carousel slide border" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div className="d-flex" style={{ height: 300 }}>
-                                <img src={itachi} class="m-auto img-fluid" alt="Itachi" style={{ flex: 1 }} />
-                                <img src={itachi} class="m-auto img-fluid" alt="Itachi" style={{ flex: 1 }} />
-                                <img src={itachi} class="m-auto img-fluid" alt="Itachi" style={{ flex: 1 }} />
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div className="d-flex">
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div className="d-flex">
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                                <img src={itachi} class="d-block m-auto img-fluid" alt="Itachi" style={{ height: 300, flex: 1 }} />
-                            </div>
-                        </div>
-
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-12 col-md-8 border">
+                        <Section heading={"Most Popular"} id={"mp"} />
+                        <Section heading={"Recommended"} id={"rec"} />
+                        <Section heading={"Newest"} id={"newest"} />
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div className="col-12 col-md-4">
+                        <Aside />
+                    </div>
                 </div>
+
             </div>
         );
     }
+}
+
+const Section = (props) => {
+    return (
+        <div className="container mx-0 my-4 border">
+            <div id={props.id} class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <h4>{props.heading}</h4>
+                <div class="carousel-inner">
+                    <div class="carousel-item active d-flex">
+                        <div style={{ flex: 1, width: "33%" }} >
+                            <img src={itachi} alt="Itachi" style={{ width: "100%" }} />
+                        </div>
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                    </div>
+                    <div class="carousel-item">
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                    </div>
+                    <div class="carousel-item">
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                        <img src={itachi} alt="Itachi" style={{ flex: 1, width: "33%" }} />
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target={"#" + props.id} data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target={"#" + props.id} data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    )
+}
+
+const Aside = props => {
+    return (
+        < ul class="list-group aside my-4"  >
+            <h4>Another links</h4>
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+        </ul >
+    )
 }
 
 RenderPosts.propTypes = {
