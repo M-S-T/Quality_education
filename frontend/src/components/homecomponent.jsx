@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "./navbarComponent";
 import RenderPosts from "./renderposts";
 
@@ -16,7 +15,7 @@ class Home extends Component {
         return (
             <div>
                 <Header />
-                <Navbar isAuthorised={true}/>
+                <Navbar isAuthorised={this.state.isAuthorised}/>
                 <RenderPosts/>
             </div>
         )

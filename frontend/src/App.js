@@ -11,6 +11,7 @@ import {
 import Authorise from "./components/authorise";
 import Home from "./components/homecomponent";
 import Landing from './components/landingPage/landingpage';
+import Universities from './components/categories/universities';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
         <Route path="/" element={<Landing/>} />
         <Route path="/home" element={<Home isloggedin={this.state.isloggedin}/>} />
         <Route path="/authorise" element={<Authorise callback={this.logincallback}/>} />
+        <Route path="/universities" element={<Universities/>} />
       </Routes>
     )
   }
