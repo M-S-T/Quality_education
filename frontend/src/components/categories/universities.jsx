@@ -14,6 +14,7 @@ class Universities extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.findRange = this.findRange.bind(this);
     }
 
     componentDidMount() {
@@ -33,18 +34,56 @@ class Universities extends Component {
         }))
     }
 
+    findRange = s => {
+        let i = 0, j = COLLEGES.length-1, len = s.length;
+        let start, end;
+        while (i < j)
+        {
+            let mid = Math.round((i + j) / 2);
+            let cmp = COLLEGES[mid]["University Name"].slice(0, len).toLowerCase().localeCompare(s.toLowerCase());
+            if (cmp === 0) 
+            {
+                if (mid===0 || COLLEGES[mid-1]["University Name"].slice(0, len).toLowerCase().localeCompare(s.toLowerCase()) < 0)
+                {
+                    i = mid;
+                    break;
+                }
+                else j = mid-1;
+            }
+            else if (cmp > 0) j = mid - 1;
+            else i = mid + 1;
+        }
+
+        start = i;
+        end = start + 50;
+
+        let s_colleges = [];
+
+        while (start <= end)
+        {
+            s_colleges.push(COLLEGES[start]["College Name"]);
+
+            start++;
+        }
+
+        return s_colleges;
+    }
+
 
     handleChange = e => {
-        console.log(e.target.value);
 
         const s_value = e.target.value;
-        const s_colleges = [];
 
-        // todo : optimise the search algorithm using binary search
+        if (s_value === "") return;
 
-        this.setState({
+        // todo : Add the data into a database and sort according to college name then searching will be efficient.
+        
+
+        const s_colleges = this.findRange(s_value);
+
+        this.setState(prev => ({
             college_names : s_colleges
-        })
+        }))
     }
 
 
