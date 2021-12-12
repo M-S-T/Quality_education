@@ -14,3 +14,16 @@ class Colleges(models.Model):
 
     def __repr__(self) -> str:
         return self.college
+
+# creating login model
+class Login(models.Model):
+
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    college = models.ForeignKey(Colleges, on_delete=models.CASCADE)
+
+    def __repr__(self) -> str:
+        return self.username
