@@ -1,26 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
 
-class Courses extends Component {
-    constructor(props) {
-        super(props);
+export default function Cources() {
 
-        this.state = {
+    const courses = ["Computer Science and "]
 
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                This is courses section
-            </div>
-        );
-    }
+    return (
+        <div>
+            This is courses section.
+        </div>
+    )
 }
-
-Courses.propTypes = {
-
-};
-
-export default Courses;
