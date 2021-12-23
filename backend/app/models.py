@@ -28,6 +28,7 @@ class Login(models.Model):
     def __repr__(self) -> str:
         return self.username
 
+# model to for different subjects
 class Subject(models.Model):
 
     id = models.AutoField(primary_key=True)
@@ -37,13 +38,14 @@ class Subject(models.Model):
     def __repr__(self) -> str:
         return self.name
 
+# model for different types of resources
 class Resource(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    link = models.CharField(max_length=100)
+    file = models.FileField(upload_to='files/')
 
     def __repr__(self) -> str:
         return self.name
