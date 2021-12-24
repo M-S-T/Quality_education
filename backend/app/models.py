@@ -43,7 +43,11 @@ class Resource(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
+    type = models.CharField(choices=(
+        ('B', 'BOOK'),
+        ('V', 'VIDEO'),
+        ('P', 'PDF')
+    ),max_length=100)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     file = models.FileField(upload_to='files/')
 
