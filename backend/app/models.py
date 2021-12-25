@@ -15,6 +15,9 @@ class Colleges(models.Model):
     def __repr__(self) -> str:
         return self.college
 
+    def __str__(self) -> str:
+        return self.college
+
 # creating login model
 class Login(models.Model):
 
@@ -27,6 +30,9 @@ class Login(models.Model):
 
     def __repr__(self) -> str:
         return self.username
+    
+    def __str__(self) -> str:
+        return self.username
 
 # model to for different subjects
 class Subject(models.Model):
@@ -36,6 +42,9 @@ class Subject(models.Model):
     code = models.CharField(max_length=100)
 
     def __repr__(self) -> str:
+        return self.name
+    
+    def __str__(self) -> str:
         return self.name
 
 # model for different types of resources
@@ -53,4 +62,7 @@ class Resource(models.Model):
     tags = models.CharField(max_length=200, default='material')
 
     def __repr__(self) -> str:
+        return self.name
+    
+    def __str__(self) -> str:
         return self.name
