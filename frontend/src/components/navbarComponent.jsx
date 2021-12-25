@@ -4,29 +4,22 @@ import PropTypes from "prop-types";
 
 import logo from "../static/images/favicon.ico";
 
-
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isAuthorized: true
+            isAuthorized: true,
         }
     }
 
-    // componentDidMount()
-    // {
-    //     this.setState({
-    //         isAuthorized: this.props.isAuthorized
-    //     })
-    // }
 
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-blue shadow">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/home">
-                        <img src={logo} alt="Quality Education" width="30" height="24" class="d-inline-block align-text-top" />
+                        <img src={logo} alt="Quality Education" width="30" height="24" className="d-inline-block align-text-top" />
                         Quality Education
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,19 +32,17 @@ class Navbar extends Component {
                                 <li className="nav-item">
                                     <Link to="/home" className="nav-link">Home</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to="/subjects" className="nav-link">Subjects</Link>
+                                </li>
                                 <li className="nav-item dropdown">
                                     <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Subjects
+                                        Universities
                                     </Link>
-                                    {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><Link className="dropdown-item" to="/universities">Universities</Link></li>
                                         <li><Link className="dropdown-item" to="/semesters">Semester</Link></li>
                                         <li><Link className="dropdown-item" to="/courses">Courses</Link></li>
-                                    </ul> */}
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><Link className="dropdown-item" to="/universities">S1</Link></li>
-                                        <li><Link className="dropdown-item" to="/semesters">S2</Link></li>
-                                        <li><Link className="dropdown-item" to="/courses">S3</Link></li>
                                     </ul>
                                 </li>
                             </ul>

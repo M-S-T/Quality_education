@@ -50,6 +50,7 @@ class Resource(models.Model):
     ),max_length=100)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     file = models.FileField(upload_to='files/')
+    tags = models.CharField(max_length=200, default='material')
 
     def __repr__(self) -> str:
         return self.name
