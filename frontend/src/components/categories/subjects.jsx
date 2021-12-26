@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../navbarComponent';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../state';
 
 function Subjects() {
     const [subjects, setSubjects] = useState([]);
+    const dispatch = useDispatch();
+    const action = bindActionCreators(actionCreators, dispatch);
 
     useEffect(() => {
         const url = "http://127.0.0.1:8000/app/getSubjects/";
 
         axios.get(url)
             .then(res => {
-                console.log(res.data.subjects);
                 setSubjects(res.data.subjects);
             })
             .catch(err => console.log(err));
@@ -33,14 +38,15 @@ function Subjects() {
                     {
                         subjects.map((subject, index) => {
                             return (
-                                <div className="card text-white col-12 col-sm-6 col-md-4 col-lg-3" key={subject.id}
-                                    style={{ cursor: "pointer", background : "#f3950d" }}>
+                                <Link to={`/subject/${subject.code}`} className="card text-white col-12 col-sm-6 col-md-4 col-lg-3" key={subject.id}
+                                    style={{background : "#f3950d", textDecoration:"none" }}
+                                    onClick={() => action.updateCode(subject.code)}>
                                     <div className="card-header">{index + 1}</div>
                                     <div className="card-body">
                                         <h6 className="card-title">{subject.name}</h6>
                                         <p className="card-text">CODE : {subject.code}</p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         }
                         )}

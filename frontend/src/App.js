@@ -18,6 +18,7 @@ import Semesters from './components/categories/semesters';
 import Courses from './components/categories/coureses';
 import Profile from './components/profiles';
 import Subjects from './components/categories/subjects';
+import Subject from './components/categories/subject';
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
         <Route path="/courses" element={<Courses/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/subjects" element={<Subjects/>} />
+        <Route path="/subject/:subjectCode" element={<Subject/>} />
       </Routes>
     )
   }
