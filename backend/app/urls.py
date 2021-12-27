@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.appOverview, name='app-overview'),
     path('addSubjects/', views.addSubjects, name='add-subjects'),
     path('getSubjects/', views.getSubjects, name='get-subjects'),
+    path('getResource/<str:code>/', views.getResources, name='get-subject'),
 ]

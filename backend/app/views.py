@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import SubjectSerializer, ResourceSerializer
-from .models import Subject
+from .models import Subject, Resource
 
 # Create your views here.
 @api_view(['GET'])
@@ -46,3 +46,13 @@ def getSubjects(request):
     subjects = Subject.objects.all()
 
     return Response({'subjects': SubjectSerializer(subjects, many=True).data})
+
+@api_view(['GET'])
+def getResources(request, code):
+
+    subject = Subject.objects.filter(code=code)[0]
+    resources = Resource.objects.filter(subject=subject)
+    serializer = ResourceSerializer(resources, many=True)
+    print(serializer.data)
+
+    return Response(serializer.data)
