@@ -63,7 +63,7 @@ class Stream(models.Model):
     
     id = models.AutoField(primary_key=True)
     name_stream = models.CharField(max_length=100)
-    subject_stream + models.CharField(max_length=1000)
+    subject_stream = models.CharField(max_length=1000)
     extra_semester_stream = models.CharField(max_length=20)
     extra_branch_stream = models.CharField(max_length=20)
     
