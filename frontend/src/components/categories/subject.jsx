@@ -20,7 +20,7 @@ function Subject({match}){
             {subjects.map(subject => {
                 return (
                     <div key={subject.id}>
-                    <h1>{subject.name}</h1>
+                    <a href="/">{subject.name}</a>
                     {/* <iframe src={"/backend"+subject.file} frameBorder={0}></iframe> */}
                     <p>{subject.file}</p>
                     </div>
