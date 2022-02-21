@@ -5,13 +5,13 @@ from django.db import models
 # Creating a model to contain the college info
 class Colleges(models.Model):
 
-    id = models.AutoField(primary_key=True)
+    name_id = models.AutoField(primary_key=True)
     college_university = models.CharField(max_length=100)
     college_college = models.CharField(max_length=100)
     college_state = models.CharField(max_length=30)
     college_distric = models.CharField(max_length=30)
     college_type = models.CharField(max_length=100)
-    college_courses = models.ManyToManyField('Courses', through='CollegeCourses')
+    # college_courses = models.ManyToManyField('Courses', through='CollegeCourses')
     def __repr__(self) -> str:
         return self.college
 
@@ -19,7 +19,7 @@ class Colleges(models.Model):
 # creating login model
 class Login(models.Model):
 
-    id = models.AutoField(primary_key=True)
+    name_id = models.AutoField(primary_key=True)
     login_username = models.CharField(max_length=100)
     login_password = models.CharField(max_length=100)
     login_email = models.CharField(max_length=100)
@@ -33,10 +33,10 @@ class Login(models.Model):
 # model to for different subjects
 class Subject(models.Model):
 
-    id = models.AutoField(primary_key=True)
+    name_id = models.AutoField(primary_key=True)
     subject_name = models.CharField(max_length=100)
     subject_code = models.CharField(max_length=100)
-    subject_extras = models.models.CharField(max_length=50)
+    subject_extras = models.CharField(max_length=100)
     
     def __repr__(self) -> str:
         return self.name
@@ -45,11 +45,11 @@ class Subject(models.Model):
 # model for different types of resources
 class Resource(models.Model):
 
-    id = models.AutoField(primary_key=True)
+    name_id = models.AutoField(primary_key=True)
     resources_name = models.CharField(max_length=100)
     type = models.CharField(choices=(
         ('B', 'BOOK'),
-        ('V', 'VIDEO'),
+        ('V', 'Vname_idEO'),
         ('P', 'PDF')
     ),max_length=100)
     resources_subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
@@ -61,9 +61,9 @@ class Resource(models.Model):
 
 class Stream(models.Model):
     
-    id = models.AutoField(primary_key=True)
+    name_id = models.AutoField(primary_key=True)
     name_stream = models.CharField(max_length=100)
-    subject_stream + models.CharField(max_length=1000)
+    subject_stream = models.CharField(max_length=1000)
     extra_semester_stream = models.CharField(max_length=20)
     extra_branch_stream = models.CharField(max_length=20)
     
